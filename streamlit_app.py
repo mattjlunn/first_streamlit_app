@@ -13,7 +13,7 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-my_fruit_list = my_fruit_list. set_index("Fruit")
+my_fruit_list = my_fruit_list.set_index("Fruit")
 
 #pick list to select desired fruit
 fruits_selected = streamlit.multiselect("Pick some fruits: ", list(my_fruit_list.index), ['Avocado', 'Strawberries'])
@@ -38,7 +38,7 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfruit')
-myfruitlist.append(add_my_fruit)
+my_fruit_list.append(add_my_fruit)
 streamlit.write('Thanks for adding ', fruit_choice)
 
 import snowflake.connector

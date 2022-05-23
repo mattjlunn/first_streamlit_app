@@ -1,5 +1,9 @@
 import streamlit
 import pandas
+import snowflake.connector
+
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
 
 streamlit.title("My Parents New Healthy Diner")
 streamlit.header('Breakfast Favorites')
@@ -44,10 +48,7 @@ streamlit.write('Thanks for adding ', fruit_choice)
 
 my_cur.execute("INSERT INTO fruit_load_list VALUES ('from streamlit');")
 
-import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * FROM fruit_load_list")
 my_data_rows = my_cur.fetchall()
 streamlit.text("The fruit load list contains:")

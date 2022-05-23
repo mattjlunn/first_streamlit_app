@@ -42,7 +42,7 @@ add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfr
 streamlit.write('Thanks for adding ', fruit_choice)
 
 
-my_cur.execute("INSERT INTO fruit_load_list VALUES ('from streamlit');"
+my_cur.execute("INSERT INTO fruit_load_list VALUES ('from streamlit');")
 
 import snowflake.connector
 
